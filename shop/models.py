@@ -75,3 +75,19 @@ class Gallery(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    product = models.ForeignKey(Suits, on_delete=models.CASCADE, related_name='reviews')
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f'Comment by {self.name} on {self.product}'
+
+    class Meta:
+        ordering = ('created',)

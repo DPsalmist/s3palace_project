@@ -15,7 +15,7 @@
 				<div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
 					<div class="col-md1 simpleCart_shelfItem">
 						<a href="{{ last_suit.get_absolute_url }}">
-							<img style="height:300px; width:250px;" class="img-responsive" src="{{ last_suit.image.url }}" alt="" />
+							<img style="height:280px; width:250px;" class="img-responsive" src="{{ last_suit.image.url }}" alt="" />
 						</a>
 						<h3><a href="{{ last_suit.get_absolute_url }}">{{ last_suit.name }}</a></h3>
 						<div class="price">
@@ -53,7 +53,7 @@
                 <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
 					<div class="col-md1 simpleCart_shelfItem">
 						<a href="{{ product.get_absolute_url }}">	
-						    <img class="img-responsive" style="height:300px; width:220px;" src="{{ product.image.url }}" alt="" />
+						    <img class="img-responsive" style="height:280px; width:220px;" src="{{ product.image.url }}" alt="" />
 						</a>
 						<h3><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
 						<div class="price">
@@ -83,7 +83,7 @@
                     <a {% if category.slug == c.slug %} {% endif %} href="{{ c.get_absolute_url }}">
                         <div class="content-grid-effect slow-zoom vertical">
                             <div class="img-box">
-                                <img style="height:300px;" src="{% static 'images/chinasuit1.jpeg' %}" alt="Chinese brand " class="img-responsive zoom-img">
+                                <img style="height:300px; width:80%; margin:auto;" src="{% static 'images/chinasuit1.jpeg' %}" alt="Chinese brand " class="img-responsive zoom-img">
                             </div>
                             <div class="info-box">
                                 <div class="info-content simpleCart_shelfItem">
@@ -96,7 +96,7 @@
                     <a href="{{ c.get_absolute_url }}">
                         <div class="content-grid-effect slow-zoom vertical">
                             <div class="img-box">
-                                <img style="height:300px;" src="{% static 'images/italysuit1.jpeg' %}" alt="Italian brand" class="img-responsive zoom-img">
+                                <img style="height:300px; width:80%; margin:auto;" src="{% static 'images/italysuit1.jpeg' %}" alt="Italian brand" class="img-responsive zoom-img">
                             </div>
                             <div class="info-box">
                                 <div class="info-content simpleCart_shelfItem">
@@ -109,7 +109,7 @@
                     <a href="{{ c.get_absolute_url }}">
                         <div class="content-grid-effect slow-zoom vertical">
                             <div class="img-box">
-                                <img style="height:300px;" src="{% static 'images/turkeysuit1.jpeg' %}" alt="Turkey" class="img-responsive zoom-img">
+                                <img style="height:300px; width:80%; margin:auto;" src="{% static 'images/turkeysuit1.jpeg' %}" alt="Turkey" class="img-responsive zoom-img">
                             </div>
                             <div class="info-box">
                                 <div class="info-content simpleCart_shelfItem">

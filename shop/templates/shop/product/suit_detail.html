@@ -1,5 +1,6 @@
 {% extends 'shop/base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -19,7 +20,7 @@
 <div class="products">
 	<div class="container">
 		<h2>
-			{% if category %}{{ category.name }} {% else %}Product Detail{% endif %}
+			{% if category %}{{ category.name }} {% else %}Suit Detail{% endif %}
 		</h2>
         <hr>
 
@@ -42,9 +43,8 @@
                     {% comment %} Product forms {% endcomment %}
                     <div class="col-md-8 col-sm-12" style="min-height:700px; width:50%; border: 0px solid green;">
                         <div class="single-para simpleCart_shelfItem">
-                            <h2>{{ suit.name }}</h2>
-                            <!-- <p> {{ suit.description|linebreaks }}</p>
- -->                            <div class="star-on">
+                            <h2>{{ suit.name }}</h2>   
+                             <div class="star-on">
                                 <ul>
                                     <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
                                     <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
@@ -52,10 +52,14 @@
                                     <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
                                     <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
                                 </ul>
+                                {% with reviews.count as total_reviews %}
+                
                                 <div class="review">
-                                    <a href="#"> x reviews </a>/
-                                    <a href="#">Write a review</a>
+                                    <a href="#" class="text-muted"> {{ total_reviews }} reviews </a>/
+                                    <a href="#review">Write a review</a>
                                 </div>
+                                {% endwith %}
+
                                 <div class="clearfix"> </div>
                             </div>
                             <label  class="add-to item_price">&#x20A6; {{ suit.price }}</label>
@@ -114,6 +118,7 @@
                                 </li>
                             </ul>
                     </div>
+
                 <!--initiate accordion-->
                         <script type="text/javascript">
                             $(function() {
@@ -135,34 +140,50 @@
                             });
                         </script>
                     <!--//menu-->
-
-                    <hr>
-                                <!--tags-->
-                                <div class="tag">	
-                                    <h3 class="cate">Tags</h3>
-                                    <div class="tags text-right col-md-6 col-sm-12">
-                                        <ul>
-                                            <li style="width:115px; float:right;"><a href="#">turkish suits</a></li>
-                                            <li style="width:115px; float:right;"><a href="#">italian suits</a></li>
-                                            <li style="width:115px; float:right;"><a href="#">chinese suits</a></li>
-                                            <li style="width:115px; float:right;"><a href="#">turkish shoes</a></li>
-                                            <li style="width:115px; float:right;"><a href="#">italian shoes</a></li>
-                                            <li style="width:115px; float:right;"><a href="#">chinese shoes</a></li>
-                                            <div class="clearfix"> </div>
-                                        </ul>
-                                    </div>					
-                                </div>
             </div>
         </div>
         <hr>
         {% comment %} End of Product Detail {% endcomment %}
 
+
         {% comment %} Review Section {% endcomment %}
-        <div class="row">
-            <div class="rsidebar span_1_of_left" style="border: 0px solid purple; height:500px; text-align:center;">
-                <h2>Review Form Here</h2>
+        <h2>Suit Reviews</h2>
+            
+        <div id="review" class="row justify-content center">
+            <div class="col-md-4 animated wow" style="border:1px dashed gold; min-height:500px;">
+                {% for review in reviews %}
+                    <div  style="background-color: whitesmoke;">
+                        {{ review.body }}
+                       <small class="text-muted">
+                        <i>
+                         Review made by: {{ review.name }} on {{ review.created | date:"M d, Y" }}
+                        </i>
+                        </small>
+                       
+                     </div>
+                {% empty %}
+                    <p>There are no reviews yet for this product!</p>
+                    <hr> <br>
+                {% endfor %}
             </div>
+                            
+            <!-- Comment Form -->
+            <div class="col-md-8 animated wow" style="border:1px dashed gold; min-height:500px; margin: auto; text-align:center;">
+                    {% if new_review %}       
+                        <p>Thanks! Your review has been added.</p>
+                    {% else %}
+                        <h3>Write a new review</h3> <br>
+                        <form method="post">
+                           {{ review_form|crispy }}
+                           {% csrf_token %}
+                           <p><input class="item_add btn btn-outline-warning btn-block btn-sm m-1" type="submit" value="Submit Review"></p>
+                        </form> 
+                    {% endif %}
+            </div>
+
         </div>
+
+
     </div>
 </div>
 

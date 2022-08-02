@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import Suits, Category, Gallery
+from .models import Suits, Category, Gallery, Review
 from cart.forms import CartAddProductForm
 from django.core.mail import BadHeaderError, send_mail, EmailMessage
 from django.db.models import Q 
 from cart.cart import Cart
 from django.conf import settings
+from .forms import ReviewForm
 
 # Create your views here.
 def home(request):
@@ -114,11 +115,28 @@ def suit_detail(request, id, slug):
     cart_product_form = CartAddProductForm()
     print('This is suit detail=', suit)
     cart = Cart(request)
+
+    # List of active reviews for this post
+    reviews = suit.reviews.filter(active=True)
+    new_comment = None
+    if request.method == 'POST':
+        # A comment was posted
+        review_form = ReviewForm(data=request.POST)
+        if review_form.is_valid():
+            # Create Comment object but don't save to db yet
+            new_review = review_form.save(commit=False)
+            new_review.product = suit
+            new_review.save()
+    else:
+        review_form = ReviewForm()
+
     context = {
 		'suit': suit,
         'categories':categories,
         'cart':cart,
 		'cart_product_form': cart_product_form,
+        'review_form':review_form,
+        'reviews':reviews
 	}
     return render(request,'shop/product/suit_detail.html',context)
 
