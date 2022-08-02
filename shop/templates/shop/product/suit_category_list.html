@@ -1,0 +1,114 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="breadcrumbs">
+	<div class="container">
+		<ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+			<li><a href="{% url 'shop:home' %}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+			<li class="active">Categories</li><li class="active">{{category.name}} Suits</li>
+		</ol>
+	</div>
+</div>
+
+<!--content-->
+<div class="products">
+	<div class="container">
+		<h2>
+			{% if category %}{{ category.name }} Products {% else %}Products{% endif %}
+		</h2>
+
+        {% comment %} Start Row {% endcomment %}
+        <div class="col-md-9" style="border: 0px solid red;">
+            <div class="content-top1">
+                {% for c in suits %}
+				<div class="col-md-4 col-md4">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="{{ c.get_absolute_url }}">
+							<img style="height:250px; width:200px;" class="img-responsive" src="{{ c.image.url }}" alt="Product Picture" />
+						</a>
+						<h3><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></h3>
+						<div class="price">
+								<h5 class="item_price">&#x20A6;{{ c.price }}</h5>
+								{% comment %} <a href="#" class="item_add">Add To Cart</a> {% endcomment %}
+								<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>
+                {% endfor %}
+            </div>	
+        </div> <br>
+        {% comment %} Part B {% endcomment %}
+        <div class="col-md-3 col-sm-12 mt-10 animated wow fadeInLeft" data-wow-delay=".5s" style="text-align:center;">
+            <!--categories-->
+				<div class=" rsidebar span_1_of_left">
+					{% comment %} {% if category %}{{ category.name }}{% else %}Products{% endif %} {% endcomment %}
+						<h3 class="cate">Product Categories</h3>
+						<ul class="menu-drop">
+							<li class="item1"> {% if not category %} {% endif %}
+								<a href="{% url "shop:home" %}">All Categories</a>
+								<ul style="text-align:center;" class="cute">
+									{% for c in categories %}
+									<li class="subitem1 text-right" {% if category.slug == c.slug %} {% endif %}> 
+										{% if c.name == 'China' %} 
+											<a href="{{ c.get_absolute_url }}"> <img style="height:100px;" src="{% static 'images/chinasuit1.jpeg' %}" class="img-responsive" alt=""/>
+												{{ c.name }} 
+										{% elif c.name == 'Italy' %}
+											<a href="{{ c.get_absolute_url }}"> <img style="height:100px;" src="{% static 'images/italysuit1.jpeg' %}" class="img-responsive" alt=""/>
+												{{ c.name }}
+                                        {% elif c.name == 'Turkey' %}
+                                                <a href="{{ c.get_absolute_url }}"> <img style="height:100px;" src="{% static 'images/turkeysuit1.jpeg' %}" class="img-responsive" alt=""/>
+                                                    {{ c.name }}
+										{% endif %}</a>
+									</li>
+									{% endfor %}
+								</ul>
+							</li>
+						</ul>
+				</div>
+			<!--initiate accordion-->
+					<script type="text/javascript">
+						$(function() {
+							var menu_ul = $('.menu-drop > li > ul'),
+									menu_a  = $('.menu-drop > li > a');
+							menu_ul.hide();
+							menu_a.click(function(e) {
+								e.preventDefault();
+								if(!$(this).hasClass('active')) {
+									menu_a.removeClass('active');
+									menu_ul.filter(':visible').slideUp('normal');
+									$(this).addClass('active').next().stop(true,true).slideDown('normal');
+								} else {
+									$(this).removeClass('active');
+									$(this).next().stop(true,true).slideUp('normal');
+								}
+							});
+						
+						});
+					</script>
+				<!--//menu-->
+
+                <hr>
+							<!--tags-->
+							<div class="tag">	
+								<h3 class="cate">Tags</h3>
+								<div class="tags text-right col-md-6 col-sm-12">
+									<ul>
+										<li class='' style="width:115px; float:right;"><a href="#">turkish suits</a></li>
+										<li style="width:115px; float:right;"><a href="#">italian suits</a></li>
+										<li style="width:115px; float:right;"><a href="#">chinese suits</a></li>
+										<li style="width:115px; float:right;"><a href="#">turkish shoes</a></li>
+										<li style="width:115px; float:right;"><a href="#">italian shoes</a></li>
+										<li style="width:115px; float:right;"><a href="#">chinese shoes</a></li>
+										<div class="clearfix"> </div>
+									</ul>
+								</div>					
+							</div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content  %}

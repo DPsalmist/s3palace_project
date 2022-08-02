@@ -1,0 +1,25 @@
+ {% extends "shop/base.html" %}
+ {% block title %}
+    SD eShop - Thank you
+ {% endblock %}
+   
+{% block content %}
+   <div class="container" style="min-height:400px;">
+      <h1>Thank you</h1>
+
+      <br>
+      
+      <p>
+         Your order has been successfully placed. Your order transaction id is <strong>{{ order_id }}</strong> with a total cost of &#x20A6; 
+         <b>{{ total_order_cost }}</b>
+      </p> 
+      <hr>
+      <p>
+         You will need to provide this upon payment. Thanks!
+         <br><br>
+         <a href="https://paystack.com/pay/s3palace" target="blank" class="img-responsive" type="btn btn-outline-primary"> Proceed to make payment now</a>
+   </p>
+
+   </div>
+
+{% endblock %}

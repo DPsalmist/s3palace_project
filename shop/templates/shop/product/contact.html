@@ -1,0 +1,87 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+	<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+				<li><a href="{% url 'shop:home' %}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li class="active">Contact</li>
+			</ol>
+		</div>
+	</div>
+<div class="contact">
+			<div class="container">
+				<h3>Contact</h3>
+				
+				<div class="contact-grids">
+					<div class="contact-form">
+							<form action="#" method="post">
+								{% csrf_token %}
+								<div class="contact-bottom">
+									<div class="col-md-4 in-contact">
+										<span>Name</span>
+										<input required type="text" placeholder='Enter Your Full Name' name="fullname">
+									</div>
+									<div class="col-md-4 in-contact">
+										<span>Email</span>
+										<input required type="text" placeholder='name@example.com' name="email" >
+									</div>
+									<div class="col-md-4 in-contact">
+										<span>Phone Number</span>
+										<input required type="text" placeholder='Enter your phone number' name="phonenumber">
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							
+								<div class="contact-bottom-top">
+									<span>Message</span>
+									<textarea required placeholder='Enter Your Message Here' name="message"> </textarea>								
+									</div>
+								<input type="submit" value="Send">
+							</form>
+						</div>
+						
+				<div class="address">
+					<div class=" address-more">
+						<h2>Address</h2>
+						<div class="col-md-4 address-grid">
+							<i class="glyphicon glyphicon-map-marker"></i>
+							<div class="address1">
+								<span>Adefemi Street, Ushafa, Off Bwari Council Area,</span>
+								<p>FCT, Abuja.</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="col-md-4 address-grid ">
+							<i class="glyphicon glyphicon-phone"></i>
+							<div class="address1">
+								<p>0803 293 0181</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="col-md-4 address-grid ">
+							<i class="glyphicon glyphicon-envelope"></i>
+							<div class="address1">
+								<p><a href="support@s3palace.com"><span>support@s3palace.com</span></a></p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div> <br><br>
+
+                <!--map-->
+				<div class="mapouter col-md-10 col-sm-12 map mt-10" style="text-align:center">
+					<div class="gmap_canvas">
+						<iframe width="80%" height="316" id="gmap_canvas" src="https://maps.google.com/maps?q=Adefemi%20Street,%20Ushafa,%20Off%20Bwari%20Council%20Area&t=k&z=9&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+						<a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:right;height:316px;width:1000px;}</style><a href="https://www.embedgooglemap.net"></a>
+						<style>.gmap_canvas {overflow:hidden;background:none!important;height:316px;width:1046px;}</style>
+					</div>
+				</div>
+				<!--//map-->
+			</div>
+		</div>
+
+<!--//content-->
+
+{% endblock content %}

@@ -1,0 +1,146 @@
+{% load static  %}
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<title>{% block title %}Smiles Suits & Shoes | think satisfaction, think SMILES!{% endblock %}</title>
+
+<link href="{% static 'css/bootstrap-3.1.1.min.css' %}" rel='stylesheet' type='text/css' />
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='description', content='Smiles Suits and Shoes. Your smile is our satisfaction. S3Palace is a place of comfort and luxury.
+If you are looking for quality suits and shoes at affordable prices, look no further than s3palace.'>
+<meta name='Developer', content='Damilare Samuel' />
+<meta name="author" content="SOD Technology, Damilare Samuel">
+<meta name="keywords" content="Smiles Suits and Shoes Store, S3Palace, S3 palace, affordable suits in Abuja, Italian suits and shoes. Quality shoes in Abuja.
+Free delivery of shoes and suits, Suits in Kubwa, Shoes in Kubwa, Ecommerce for shoes and suits" />
+ <!-- Icon -->
+ <link rel="icon" type="text/css" href="{% static 'images/logo2 copy.png' %}">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+<link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+
+<!-- start menu -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/simpleCart.min.js' %}"> </script>
+<!-- slide -->
+<script src="{% static 'js/responsiveslides.min.js' %}"></script>
+   <script>
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: false,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+  </script>
+  <!-- animation-effect -->
+<link href="{% static 'css/animate.min.css' %}" rel="stylesheet"> 
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script>
+ new WOW().init();
+</script>
+<!-- //animation-effect -->
+</head>
+
+<!--header cart-->
+<div class="header">
+	<div class="header-top">
+		<div class="container">
+				<div class="col-sm-4 logo animated wow fadeInLeft" data-wow-delay=".5s">
+					{% comment %} <img src="{% static 'images/logo2 copy.png' %}" style='height:50px; width:50px;',  alt='S3 Palace logo'/> {% endcomment %}
+					<h1><a class='' href="{% url 'shop:home' %}">S3 <span>Palace</span></a></h1>
+						
+				</div>
+			<div class="col-sm-4 world animated wow fadeInRight" data-wow-delay=".5s">
+					<div class="cart box_1">
+						<a href="{% url 'cart:cart_detail' %}">
+						<h3> <div class="total">
+							<img src="{% static 'images/cart.png' %}" alt="cart"/></h3>
+						</a>
+						<p>
+              {% with total_items=cart|length %}
+                  {% if total_items > 0 %}
+                  	Your cart:
+                  	<a href="{% url "cart:cart_detail" %}">
+                  	{{ total_items }} item{{ total_items|pluralize }},
+                  	&#x20A6;{{ cart.get_total_price }}
+                  	</a>
+                  {% else %}
+                  	Your cart is empty.
+                  {% endif %}
+              {% endwith %} 
+						</p>
+					</div>
+			</div>
+			<div class="col-sm-2 number animated wow fadeInRight" data-wow-delay=".5s">
+					<span><i class="glyphicon glyphicon-phone"></i>0803 293 0181</span>
+					<p>Call me</p>
+				</div>
+			<div class="col-sm-2 search animated wow fadeInRight" data-wow-delay=".5s">		
+				<span id = 'search_bar'><a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i id='btn_search'
+				 class="glyphicon glyphicon-search item_add2">
+				</i></a></span>
+			</div>
+				<div class="clearfix"> </div>
+		</div>
+	</div>
+	<!-- Header Cart Ends -->
+
+		<!-- Header Here -->
+		{% include 'shop/product/header.html' %}
+	
+			<!---pop-up-box---->   
+					<link href="{% static 'css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all"/>
+					<script src="{% static 'js/jquery.magnific-popup.js' %}" type="text/javascript"></script>
+					<!---//pop-up-box---->
+				<div id="small-dialog" class="mfp-hide">
+				<div class="search-top">
+						<div class="login">
+							<form action="{% url 'shop:search' %}" method="get">
+								<!-- {% csrf_token %} -->
+								<input type="submit" value="">
+								<input type="text" name="q" value="Type something to search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">		
+							
+							</form>
+						</div>
+						<p>	Shopping</p>
+					</div>				
+				</div>
+				 <script>
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+																						
+						});
+				</script>			
+	<!---->		
+		</div>
+	</div>
+</div>
+<body>
+{% block content %} {% endblock content  %}
+</body>
+<!--footer-->
+{% include 'shop/product/footer.html' %}
+<!--footer-->
+</html>

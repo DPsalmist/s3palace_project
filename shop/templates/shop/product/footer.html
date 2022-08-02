@@ -1,0 +1,74 @@
+<div class="footer">
+	<div class="container">
+		<div class="footer-top">
+			<div class="col-md-6 top-footer animated wow fadeInLeft" data-wow-delay=".5s">
+				<h3>Follow Us On</h3>
+				<div class="social-icons">
+					<ul class="social">
+						<li><a href="https://web.facebook.com/SMILESSUITSANDSHOESPALACE/"><i></i></a> </li>
+						<li><a href="https://web.facebook.com/SMILESSUITSANDSHOESPALACE/"><i class="facebook"></i></a></li>	
+						<li><a href="https://web.instagram.com/SmilesSuitsandShoespalace/"><i class="linked"></i> </a></li>						
+					</ul>
+						<div class="clearfix"></div>
+				 </div>
+			</div>
+			<div class="col-md-6 top-footer1 animated wow fadeInRight" data-wow-delay=".5s">
+				<h3>Newsletter</h3>
+					<form action="#" method="post">
+						{% csrf_token %}
+						<input type="text" name="email" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+						<input type="submit" value="SUBSCRIBE">
+					</form>
+			</div>
+			<div class="clearfix"> </div>	
+		</div>	
+	</div>
+{% comment %} Footer Bottom {% endcomment %}
+	<div class="footer-bottom">
+		<div class="container">
+				
+				<div class="col-md-4 footer-bottom-cate animated wow fadeInLeft" data-wow-delay=".5s">
+					<h6>Quick Links</h6>
+					<ul>
+						<li><a href="{% url 'shop:home' %}">Home</a></li>
+						<li><a href="{% url 'shop:about' %}">About Us</a></li>
+						<li><a href="{% url 'shop:about' %}#faq">FAQs</a></li>
+						<li><a href="#">Gallery</a></li>
+						<li><a href="#">Sign In</a></li>
+						<li><a href="{% url 'shop:contact' %}">Contact Us</a></li>
+					</ul>
+				</div>
+				
+				<div class="col-md-4 footer-bottom-cate animated wow fadeInRight" data-wow-delay=".5s">
+					<h6>Top Brands</h6>
+					<ul>
+						{% for c in categories %}
+						<li {% if category.slug == c.slug %} {% endif %}>
+							{% if c.name == 'China' %}
+								<a href="{{ c.get_absolute_url }}">{{ c.name }} Suits</a>
+							{% elif c.name == 'Italy' %}
+								<a href="{{ c.get_absolute_url }}">{{ c.name }} Suits</a>
+							{% elif c.name == 'Turkey' %}
+								<a href="{{ c.get_absolute_url }}">{{ c.name }} Suits</a>
+							{% elif c.name == 'Nigerian' %}
+								<a href="{{ c.get_absolute_url }}">{{ c.name }} Suits</a>
+							{% endif %}
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="col-md-4 footer-bottom-cate cate-bottom animated wow fadeInRight" data-wow-delay=".5s">
+					<h6>Our Address</h6>
+					<ul>
+						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Adefemi Street, Ushafa, Off Bwari Council Area, <span>Abuja.</span></li>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:support@s3palace.com"></a>support@s3palace.com</li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>0803 293 0181</li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+				<p class="footer-class animated wow fadeInUp animated" data-wow-delay=".5s" 
+                style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"> © 2022 S3Palace . All Rights Reserved </p>
+		</div>
+	</div>
+</div>
+<!--footer-->

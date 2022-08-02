@@ -1,0 +1,1 @@
+web: gunicorn s3palace.wsgi --log-file -

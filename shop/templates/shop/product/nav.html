@@ -1,0 +1,96 @@
+{% load static %}
+<nav class="navbar nav_bottom" role="navigation">
+				
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header nav_2">
+	<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+	<span class="sr-only">Toggle navigation</span>
+	<span  style="background-color:#fae103b4" class="icon-bar"></span>
+	<span style="background-color:#fae103b4" class="icon-bar"></span>
+	<span style="background-color:#fae103b4" class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="#"></a>
+</div> 
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+	<ul class="nav navbar-nav nav_1">
+		<li><a href="{% url 'shop:home' %}">Home</a></li>
+		<li><a href="{% url 'shop:about' %}">Aboutss</a></li>
+		{% comment %} <li><a href="{% url 'shop:product_list' %}">Products</a></li> {% endcomment %}
+
+		{% comment %} Shoes Category {% endcomment %}
+		{% comment %} <li class="dropdown mega-dropdown active">
+			<a href="{% url 'shop:home' %}" class="dropdown-toggle" data-toggle="dropdown">Shoes<span class="caret"></span></a>				
+			<div class="dropdown-menu mega-dropdown-menu">
+				<div class="container-fluid">
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div class="tab-pane active" id="men">
+						<ul class="nav-list list-inline">
+							{% for c in categories %}
+							<li>
+								{% if c.name == 'Italy' %} 
+									<a href="{{ c.get_absolute_url }}"><img style="height:100px; width:150px;" src="{% static 'images/italyshoe1.jpeg' %}" class="img-responsive" alt=""/>
+										{{c.name}}
+									</a>
+								{% elif c.name == 'Turkey' %}
+									<a href="{{ c.get_absolute_url }}"><img style="height:100px;width:150px;" src="{% static 'images/turkeyshoe1.jpeg' %}" class="img-responsive" alt=""/>
+										{{c.name}}
+									</a>
+								{% elif c.name == 'China' %}
+									<a href="{{ c.get_absolute_url }}"><img style="height:100px;width:150px;" src="{% static 'images/chinashoe1.jpeg' %}" class="img-responsive" alt=""/>
+										{{c.name}}
+									</a>
+								{% endif%}
+								</li>
+							{% endfor %}
+						</ul>
+						</div>
+						
+					</div>
+				</div>
+				<!-- Nav tabs -->
+									
+			</div>				
+		</li> {% endcomment %}
+
+		{% comment %} Suits Category {% endcomment %}
+		<li class="dropdown mega-dropdown active">
+			<a href="{% url 'shop:home' %}" class="dropdown-toggle" data-toggle="dropdown">Suits<span class="caret"></span></a>				
+			<div class="dropdown-menu mega-dropdown-menu">
+				<div class="container-fluid">
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div class="tab-pane active" id="men">
+						<ul class="nav-list list-inline" {% if category.slug == c.slug %} {% endif %}>
+							{% for c in categories %}
+							<li>
+								{% if c.name == 'Italy' %} 
+									<a href="{{  c.get_absolute_url }}"><img style="height:100px; width:150px;" src="{% static 'images/italysuit1.jpeg' %}" class="img-responsive" alt=""/>
+										{{c.name}}
+									</a>
+								{% elif c.name == 'Turkey' %}
+									<a href="{{  c.get_absolute_url }}"><img style="height:100px; width:150px;" src="{% static 'images/turkeysuit1.jpeg' %}" class="img-responsive" alt=""/>
+										{{c.name}}
+									</a>
+								{% elif c.name == 'China' %}
+									<a href="{{ c.get_absolute_url }}"><img style="height:100px; width:150px;" src="{% static 'images/chinasuit1.jpeg' %}" class="img-responsive" alt=""/>
+										{{c.name}}
+									</a>
+								{% endif%}
+								</li>
+							{% endfor %}
+						</ul>
+						</div>
+						
+					</div>
+				</div>
+				<!-- Nav tabs -->
+									
+			</div>				
+		</li>
+		<li><a href="{% url 'shop:gallery' %}">Gallery</a></li>
+		<li class="last"><a href="{% url 'shop:contact' %}">Contact</a></li>
+	</ul>
+	</div><!-- /.navbar-collapse -->
+</nav>

@@ -1,0 +1,120 @@
+{% extends "shop/base.html" %}
+{% load crispy_forms_tags %}
+  {% block title %}
+     S3Palace - Checkout
+  {% endblock %}
+   
+  {% block content %}
+  
+  <div class="breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+        <li><a href="{% url 'shop:home' %}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+        <li class="active">Cart</li><li class="active">Checkout</li>
+      </ol>
+    </div>
+  </div>
+
+  <!--content-->
+
+<div class="products">
+  <div class="container">
+
+    <h2>Checkout</h2>
+    <div class="col-md-9" style="border: 0px solid red;">
+      <div class="content-top1">
+        <div class="contact-form ">
+          <form action="#" class="" method="post">
+            <div class="contact-up">
+              <div class="col-md-6 in-contact">
+                {{ form | crispy }}
+                <hr>
+                <p><input type="submit" value="Place Order"></p>
+                {% csrf_token %}
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+    <div class="col-md-3 col-sm-12 mt-10 animated wow fadeInLeft" data-wow-delay=".5s" style="background-color:#efefef; text-align:center;">
+      <h2>Your order</h2>
+      <hr style="border:0px dashed #333;">
+      <div class="contact-form">        
+        <div class="order-info">
+          <hr >
+          <ul>
+            {% for item in cart %}
+            <li>
+              {{ item.quantity }}x : {{ item.product.name }} = 
+              <span>&#x20A6;{{ item.total_price }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+          <hr style="border:1px dashed #333;">
+          <p style="color:#e4e008e1; border-radius:4px; overflow: hidden; padding:6px 12px;"><strong>Total Order = &#x20A6;{{ cart.get_total_price }}</strong></p>
+        </div>
+      </div>
+      {% comment %} Payment method {% endcomment %}
+      <!-- <div id="accordion" role="tablist" class="mb-4">
+        <div class="card">
+            <div class="card-header" role="tab" id="headingOne">
+                <h6 class="mb-0">
+                    <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="fa fa-circle-o mr-3"></i>Paypal</a>
+                </h6>
+            </div>
+
+            <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <p>Lorem ipsum.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" role="tab" id="headingTwo">
+                <h6 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-circle-o mr-3"></i>cash on delievery</a>
+                </h6>
+            </div>
+            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    <p>Lorem ipsum.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" role="tab" id="headingThree">
+                <h6 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-circle-o mr-3"></i>credit card</a>
+                </h6>
+            </div>
+            <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                    <p>Lorem ipsum </p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" role="tab" id="headingFour">
+                <h6 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour"><i class="fa fa-circle-o mr-3"></i>direct bank transfer</a>
+                </h6>
+            </div>
+            <div id="collapseFour" class="collapse show" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                    <p>Lorem ipsum , impedit magni.</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    </div>
+
+  </div>
+</div>
+
+  <br><br>
+  {% endblock %}

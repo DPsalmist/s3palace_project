@@ -1,0 +1,131 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block content %}
+<!--banner-->
+{% include 'shop/product/banner.html' %}
+
+<!--content 1-->
+<br><br>
+<h1 class="mt-5 animated wow fadeInUp" data-wow-delay=".5s" style="color:#e4e008e1; text-align:center">Latest Arrivals</h1> <hr>
+<div class="content">
+	<div class="container">
+		<div class="content-top">
+            {% comment %} First Row {% endcomment %}
+			<div class="content-top1">
+				<div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="{{ last_suit.get_absolute_url }}">
+							<img style="height:300px; width:250px;" class="img-responsive" src="{{ last_suit.image.url }}" alt="" />
+						</a>
+						<h3><a href="{{ last_suit.get_absolute_url }}">{{ last_suit.name }}</a></h3>
+						<div class="price">
+								<h5 class="item_price">&#x20A6;{{ last_suit.price }}</h5>
+								<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>	
+				<div class="col-md-6 animated wow fadeInDown animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+					<div class="col-md3">
+						<div class="up-t">
+							<h3>Flat 20% Offer On All Orders!</h3>
+						</div>
+					</div>
+				</div>
+			    <div class="col-md-3 col-md2 animated wow fadeInRight" data-wow-delay=".5s">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="{{ pen_suit.get_absolute_url }}">
+							<img style="height:300px; width:250px;" class="img-responsive" src="{{ pen_suit.image.url }}" alt="" />
+						</a>
+						<h3><a href="{{ pen_suit.get_absolute_url }}">{{ pen_suit.name }}</a></h3>
+						<div class="price">
+								<h5 class="item_price">&#x20A6;{{ pen_suit.price }}</h5>
+								<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>	
+			    <div class="clearfix"> </div>
+			</div>
+
+
+            {% comment %} Second Row {% endcomment %}
+			<div class=" rsidebar span_1_of_left" {% if category.slug == c.slug %} {% endif %}>
+                {% for product in suits %}
+                <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="{{ product.get_absolute_url }}">	
+						    <img class="img-responsive" style="height:300px; width:220px;" src="{{ product.image.url }}" alt="" />
+						</a>
+						<h3><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
+						<div class="price">
+								<h5 class="item_price">&#x20A6;{{ product.price }}</h5>
+								<!-- <a href="#" class="item_add">Add To Cart</a> -->
+								<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>
+                {% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+<!--//content-->
+
+{% comment %} Third Row {% endcomment %}
+<br><br>
+<h1 class="mt-5 animated wow fadeInRight" data-wow-delay=".5s" style="color:#e4e008e1; text-align:center">All Brands</h1><hr><br>
+<div class="row mt-5">
+    <div class="con-tp">
+        <div class="container">
+
+            {% for c in categories %}
+            <div class="col-md-4 mt-5 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
+                {% if c.name == 'China' %} 
+                    <a {% if category.slug == c.slug %} {% endif %} href="{{ c.get_absolute_url }}">
+                        <div class="content-grid-effect slow-zoom vertical">
+                            <div class="img-box">
+                                <img style="height:300px;" src="{% static 'images/chinasuit1.jpeg' %}" alt="Chinese brand " class="img-responsive zoom-img">
+                            </div>
+                            <div class="info-box">
+                                <div class="info-content simpleCart_shelfItem">
+                                        <h4>{{ c.name }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {% elif c.name == 'Italy' %}
+                    <a href="{{ c.get_absolute_url }}">
+                        <div class="content-grid-effect slow-zoom vertical">
+                            <div class="img-box">
+                                <img style="height:300px;" src="{% static 'images/italysuit1.jpeg' %}" alt="Italian brand" class="img-responsive zoom-img">
+                            </div>
+                            <div class="info-box">
+                                <div class="info-content simpleCart_shelfItem">
+                                        <h4>{{ c.name }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {% elif c.name == 'Turkey' %}
+                    <a href="{{ c.get_absolute_url }}">
+                        <div class="content-grid-effect slow-zoom vertical">
+                            <div class="img-box">
+                                <img style="height:300px;" src="{% static 'images/turkeysuit1.jpeg' %}" alt="Turkey" class="img-responsive zoom-img">
+                            </div>
+                            <div class="info-box">
+                                <div class="info-content simpleCart_shelfItem">
+                                    <h4>{{ c.name }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {% endif %} 
+            </div>
+            {% endfor %}
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<br><br>
+
+{% endblock content %}

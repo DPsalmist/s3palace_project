@@ -1,0 +1,85 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+  {% block title %} SD eShop - Your shopping cart {% endblock %}
+   
+  {% block content %}
+<!--//header-->
+<div class="breadcrumbs">
+  <div class="container">
+    <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+      <li><a href="{% url 'shop:home' %}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+      <li class="active">Cart</li>
+    </ol>
+  </div>
+</div>
+<!---->
+
+  <div class="container">
+    <div class="check-out">
+      <h2>Your Shopping Cart</h2>
+      <table border="0.5" style="text-align:center; margin:auto; spacing: 50px; padding:10px;">
+        <thead style="text-align:center; background-color:#333; color:gold;"> 
+          <tr style="text-align:center; padding:10px;">
+            <th style="text-align:center; padding:10px; color:#e4e008e1;">Item</th>
+            <th style="text-align:center; padding:10px; color:#e4e008e1;">Quantity</th>		
+            <th style="text-align:center; padding:10px; color:#e4e008e1;">Remove Item</th>
+            <th style="text-align:center; padding:10px; color:#e4e008e1;">Unit Price</th>
+            <th style="text-align:center; padding:10px; color:#e4e008e1;">Sub Total</th>
+          </tr>
+        </thead>
+        <tbody style="text-align:center;">
+          {% for item in cart %} 
+            {% with product=item.product %}
+              <tr>
+                <td class="ring-in">
+                  <a href="{{ product.get_absolute_url }}" class="at-in">
+                    <img src="{% if product.image %}{{ product.image.url }} {% else %}{% static "img/no_image.png" %}{% endif %}" class="img-responsive" alt="">
+                  </a>
+                  <div class="sed">
+                    <h5>{{ product.name }}</h5>
+                    <p>{{ product.description }}</p>
+                  </div>
+                  <div class="clearfix"> </div>
+                </td>
+                
+                <td class="check">
+                  <form action="{% url "cart:cart_add" product.id %}" method="post">
+                    {{ item.update_quantity.quantity }}
+                    <input type="submit" class="item_add btn btn-outline-dark" value="Update">
+                    {% csrf_token %}
+                  </form>
+                </td>		
+                <td>
+                  <form action="{% url "cart:cart_remove" product.id %}" method="post">
+                    <input type="submit" style="color:red;" class="btn btn-outline-danger to-buy" value="Remove">
+                      {% csrf_token %}
+                  </form>   
+                </td>
+                <td>&#x20A6;{{ item.price }}</td>
+                <td>&#x20A6;{{ item.total_price }}</td>
+              </tr>
+            {% endwith %}
+          {% endfor %}
+
+          <tr style="text-align:center; background-color:#333; color:gold;">
+            <td style="text-align:center; padding:10px; color:#e4e008e1;" class="ring-in">
+              <span>Total Amount Of Cart:</span>
+              <div class="sed"></div>
+              <div class="clearfix"> </div>
+            </td>
+            <td colspan="3"></td>		
+            <td style="text-align:right; color:#e4e008e1;">&#x20A6;{{ cart.get_total_price }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br><hr>
+      <p class="text-right">
+        <a href="{% url "shop:home" %}"  class=" to-buy btn btn-outline-dark ">Continue shopping</a>
+          <a href="{% url "orders:order_create" %}" class="to-buy btn btn-outline-success"> Checkout</a>
+        <div class="clearfix"> </div>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

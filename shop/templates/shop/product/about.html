@@ -1,0 +1,136 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+            <li><a href="{% url 'shop:home' %}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+            <li class="active">About Us</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contact">
+    <div class="container">
+
+        <h3>Who We Are</h3>
+        <div class="contact-grids">
+            <div class="row">
+                <div class='col-md-12'>
+                    <p>
+                        SMILES Suits and Shoes Palace, also known as S3 Palace is a Male Clothing brand that deals on quality and affordable suits and Shoes.
+                        At S3 Palace, customers satisfaction is our priority. We are bent on giving you the best suit and shoe for every occasion.
+                    </p> <br>
+                    <p>
+                        SMILES Suits and Shoes Palace, also known as S3 Palace is a Male Clothing brand that deals on quality and affordable suits and Shoes.
+                        At S3 Palace, customers satisfaction is our priority. We are bent on giving you the best suit and shoe for every occasion.
+                    </p>  
+                </div>
+            </div>
+
+            <div class="address">
+                <div class=" address-more">
+                    <h2>Vision Statement <i class="glyphicon glyphicon-eye-open"></i></h2>
+                    <div class="col-md-6 address-grid">
+                        <hr>
+                        <div class="">
+                            <p>
+                                To drive a new era of quality Suits and Shoes made with different attires and materials.
+                            </p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class=" address-more">
+                    <h2>Mission Statement <i class="glyphicon glyphicon-star-empty"></i></h2>
+                    <hr>
+                    <div class="col-md-6 address-grid">
+                        <div class="">
+                            <p>
+                                At S3Palace, we believe that you are addressed by how you're dressed.
+                                Hence, we strive to be one of the Nigeria's leading providers of quality and affordable suits and shoes for men.
+                            </p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            <hr><br><br>
+
+        </div>
+
+        {% comment %} FAQs {% endcomment %}
+        <br><hr><br>
+        <div class='row mt-10'>
+            <h3 id="faq">Frequently Asked Questions</h3>
+            <br>
+            <div class="panel-group" id="accordion">
+
+                <div class="panel panel-default">
+                  <div class="panel-heading"> <span data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="glyphicon glyphicon-tasks"></span>
+                    <h4 class="panel-title" style="text-align:center">
+                      <p> Question Group 1 </p>
+                    </h4>
+                  </div>
+                  <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat.</div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading"><span data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="glyphicon glyphicon-tasks"></span>
+                    <h4 class="panel-title" style="text-align:center">
+                      <p>Question Group 2</p>
+                    </h4>
+                  </div>
+                  <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat.</div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading"><span data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="glyphicon glyphicon-tasks"></span>
+                    <h4 class="panel-title" style="text-align:center">
+                      <p>Question Group 3</p>
+                    </h4>
+                  </div>
+                  <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat.</div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading"><span data-toggle="collapse" data-parent="#accordion" href="#collapse4" class="glyphicon glyphicon-tasks"></span>
+                      <h4 class="panel-title" style="text-align:center">
+                        <p>Question Group 4</p>
+                      </h4>
+                    </div>
+                    <div id="collapse4" class="panel-collapse collapse">
+                      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                      commodo consequat.</div>
+                    </div>
+                </div>
+
+              </div>
+
+              
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--//about us end-->
+{% endblock content %}
