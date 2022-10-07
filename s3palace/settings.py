@@ -29,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-kdoalb8fk5urv5rxfjpc%p%hi^3)qe^()h=uw4e2f3xue+o-qi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*', 's3palacesite.herokuapp.com']
+ALLOWED_HOSTS = ['s3palace.com', 's3palacesite.herokuapp.com']
 
 #gmail smtp
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
