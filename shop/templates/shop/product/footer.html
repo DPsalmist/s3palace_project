@@ -33,8 +33,8 @@
 						<li><a href="{% url 'shop:home' %}">Home</a></li>
 						<li><a href="{% url 'shop:about' %}">About Us</a></li>
 						<li><a href="{% url 'shop:about' %}#faq">FAQs</a></li>
-						<li><a href="#">Gallery</a></li>
-						<li><a href="#">Sign In</a></li>
+						<li><a href="{% url 'shop:gallery' %}">Gallery</a></li>
+						{% comment %} <li><a href="#">Sign In</a></li> {% endcomment %}
 						<li><a href="{% url 'shop:contact' %}">Contact Us</a></li>
 					</ul>
 				</div>

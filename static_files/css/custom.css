@@ -1,0 +1,67 @@
+/* Brain Tree CSS  */
+#card-number {
+  border: 1px solid #333;
+  -webkit-transition: border-color 160ms;
+  transition: border-color 160ms;
+}
+
+#card-number.braintree-hosted-fields-focused {
+  border-color: #777;
+}
+
+#card-number.braintree-hosted-fields-invalid {
+  border-color: tomato;
+}
+
+#card-number.braintree-hosted-fields-valid {
+  border-color: limegreen;
+}
+
+
+ 
+ /* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: #eee;
+    color: #444444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+    background-color: #ccc;
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+  .order-form {
+    float:left;
+}
+
+.field {
+  font-size:13px;
+  color:#666;
+  width:300px;
+  height:22px;
+  margin-bottom:10px;
+  padding:6px 12px;
+  border:0;
+  background:#efefef;
+  color:#666;
+  border-radius:4px;
+}
+
+#subheader .cart {
+  float:right;
+  padding-top:4px;
+}

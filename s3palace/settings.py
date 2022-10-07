@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-kdoalb8fk5urv5rxfjpc%p%hi^3)qe^()h=uw4e2f3xue+o-qi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['s3palacesite.herokuapp.com']
+ALLOWED_HOSTS = ['*','s3palacesite.herokuapp.com']
 
 
 #gmail smtp
@@ -137,7 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = 'BASE_DIR / static_files'
+STATIC_ROOT = BASE_DIR / 'static_files'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
