@@ -66,8 +66,9 @@
                             <br>
                             <div class="col-md-4 top-footer1 animated wow fadeInRight">
                                <form action="{% url "cart:cart_add" suit.id %}" method="post">
-                                    {{ cart_product_form }} <br>
-                                    {% csrf_token %} <br>
+                                    	{% csrf_token %} <br>
+				       {{ cart_product_form }} <br>
+                                    
                                     <input class="item_add btn btn-outline-dark" style="width:100px;" type="submit" value="Add to cart">
                                 </form>
                             </div> 
