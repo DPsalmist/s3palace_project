@@ -62,7 +62,7 @@ def gallery(request, category_slug=None):
     category = None
     categories = Category.objects.all()
     suits = Suits.objects.filter(available=True)
-    gallery = Gallery.objects.filter()
+    gallery = Gallery.objects.all()
     cart = Cart(request)
     
     if category_slug:

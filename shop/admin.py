@@ -1,7 +1,9 @@
 from django.contrib import admin
-from .models import Category, Suits, Review
+from .models import Category, Suits, Review, Gallery
 
 # Register your models here.
+
+admin.site.register(Gallery)
 @admin.register(Suits)
 class SuitsAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug', 'sizes', 'category', 'brands', 'price', 'available', 'created', 'updated']

@@ -12,7 +12,7 @@
 			
             {% comment %} First Row {% endcomment %}
 			<div class=" rsidebar span_1_of_left" {% if category.slug == c.slug %} {% endif %}>
-                {% for product in suits %}
+                {% for product in gallery %}
                 <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
 					<div class="col-md1 simpleCart_shelfItem">
 						<a href="#">	
@@ -20,7 +20,7 @@
 						</a>
 						<h3><a href="#">{{ product.name }}</a></h3>
 						<div class="price">
-								<h5 class="item_price">&#x20A6;{{ product.price }}</h5>
+								{% comment %} <h5 class="item_price">&#x20A6;{{ product.price }}</h5> {% endcomment %}
 								<!-- <a href="#" class="item_add">Add To Cart</a> -->
 								<div class="clearfix"> </div>
 						</div>
