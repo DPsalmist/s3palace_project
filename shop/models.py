@@ -1,3 +1,5 @@
+from email.policy import default
+from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.urls import reverse
 
@@ -47,7 +49,8 @@ class Suits(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
     category = models.ForeignKey(Category, related_name='suits_products', on_delete=models.CASCADE)
-    sizes = models.IntegerField(choices=sizes, null=True, db_index=True, default=40)
+    sizes = models.CharField(max_length=20, blank=True, default='44-60')
+    #sizes = models.IntegerField(choices=sizes, null=True, db_index=True, default=40)
     brands = models.CharField(max_length=100, choices=brands, null=True, db_index=True)
     image = models.ImageField(upload_to='products/%Y/%m/%d',blank=True)
     description = models.TextField(blank=True)
