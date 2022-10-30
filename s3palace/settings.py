@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-kdoalb8fk5urv5rxfjpc%p%hi^3)qe^()h=uw4e2f3xue+o-qi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['s3palace.com', 's3palacesite.herokuapp.com']
+ALLOWED_HOSTS = ['*','s3palace.com', 'smiles-env.eba-mhdkmswb.us-west-2.elasticbeanstalk.com']
 
 CSRF_TRUSTED_ORIGINS = ['https://s3palace.com']
 
