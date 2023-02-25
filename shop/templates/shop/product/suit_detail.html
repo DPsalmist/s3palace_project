@@ -34,7 +34,7 @@
                             <ul class="slides">
                                 <li data-thumb="{{ suit.image.url }}">
                                     <div class="thumb-image"> 
-                                        <img style="height:600px; width:100%;" src="{{ suit.image.url }}" data-imagezoom="true" class="img-responsive"> 
+                                        <img style="height:400px; width:100%;" src="{{ suit.image.url }}" data-imagezoom="true" class="img-responsive"> 
                                     </div>
                                 </li>
                             </ul>
@@ -151,7 +151,7 @@
         <h2>Suit Reviews</h2>
             
         <div id="review" class="row justify-content center">
-            <div class="col-md-4 animated wow" style="border:1px dashed gold; min-height:500px;">
+            <div class="col-md-4 animated wow" style="border:0.5px dashed gold; min-height:200px;">
                 {% for review in reviews %}
                     <div  style="background-color: whitesmoke;">
                         {{ review.body }}
@@ -169,7 +169,7 @@
             </div>
                             
             <!-- Comment Form -->
-            <div class="col-md-8 animated wow" style="border:1px dashed gold; min-height:500px; margin: auto; text-align:center;">
+            <div class="col-md-8 animated wow" style="border:0.5px dashed gold; min-height:200px; margin: auto; text-align:center;">
                     {% if new_review %}       
                         <p>Thanks! Your review has been added.</p>
                     {% else %}
