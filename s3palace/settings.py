@@ -33,7 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*','s3palace.com', 'smiles-en.eba-raicbism.us-west-2.elasticbeanstalk.com']
 
-CSRF_TRUSTED_ORIGINS = ['https://s3palace.com']
+CSRF_TRUSTED_ORIGINS = ['https://s3palace.click']
 
 #gmail smtp
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -135,7 +135,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-CSRF_TRUSTED_ORIGINS = ['https://s3palace.com']
+#CSRF_TRUSTED_ORIGINS = ['https://s3palace.com']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
